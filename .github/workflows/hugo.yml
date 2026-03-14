@@ -42,7 +42,8 @@ jobs:
           mkdir -p "$RUNNER_TEMP/bin"
           mv hugo "$RUNNER_TEMP/bin/hugo"
           echo "$RUNNER_TEMP/bin" >> "$GITHUB_PATH"
-          hugo version
+          export PATH="$RUNNER_TEMP/bin:$PATH"
+          "$RUNNER_TEMP/bin/hugo" version
 
       - name: Build
         run: hugo --minify
