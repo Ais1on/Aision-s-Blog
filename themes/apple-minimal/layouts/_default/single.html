@@ -1,0 +1,40 @@
+{{ define "main" }}
+{{ $toc := .TableOfContents }}
+<div class="article-layout">
+  {{ if ne $toc "<nav id=\"TableOfContents\"></nav>" }}
+    <aside class="article-sidebar" data-toc-sidebar>
+      <div class="article-toc" data-toc-card>
+        <div class="article-toc-head">
+          <p class="article-toc-title">目录</p>
+          <button class="article-toc-toggle" type="button" data-toc-toggle aria-expanded="true">
+            收起
+          </button>
+        </div>
+        <div class="article-toc-body" data-toc-body>
+          {{ $toc }}
+        </div>
+      </div>
+    </aside>
+  {{ end }}
+
+  <article class="article-single">
+    <header class="article-header">
+      <p class="page-kicker">
+        {{- if eq .Section "posts" -}}文章
+        {{- else if eq .Section "projects" -}}项目
+        {{- else -}}页面
+        {{- end -}}
+      </p>
+      <h1>{{ .Title }}</h1>
+      <div class="article-details">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006年1月2日" }}</time>
+      </div>
+      {{ with .Description }}<p class="article-description">{{ . }}</p>{{ end }}
+    </header>
+
+    <div class="article-content">
+      {{ .Content }}
+    </div>
+  </article>
+</div>
+{{ end }}

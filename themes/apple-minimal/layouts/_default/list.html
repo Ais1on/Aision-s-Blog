@@ -1,0 +1,30 @@
+{{ define "main" }}
+<section class="page-intro">
+  <p class="page-kicker">
+    {{- if eq .Section "posts" -}}博客
+    {{- else if eq .Section "projects" -}}项目
+    {{- else -}}页面
+    {{- end -}}
+  </p>
+  <h1>{{ .Title }}</h1>
+  {{ with .Description }}<p class="page-summary">{{ . }}</p>{{ end }}
+</section>
+
+<section class="article-list" aria-label="{{ .Title }}">
+  {{ range .Pages.ByDate.Reverse }}
+    <article class="article-row">
+      <div class="article-meta">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006年1月2日" }}</time>
+      </div>
+      <div class="article-body">
+        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        {{ with .Description }}
+          <p>{{ . }}</p>
+        {{ else }}
+          <p>{{ .Summary | plainify | truncate 160 }}</p>
+        {{ end }}
+      </div>
+    </article>
+  {{ end }}
+</section>
+{{ end }}

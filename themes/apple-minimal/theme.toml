@@ -1,0 +1,12 @@
+name = "apple-minimal"
+license = "MIT"
+licenselink = "https://opensource.org/licenses/MIT"
+description = "A minimalist Apple-inspired Hugo theme."
+homepage = "https://github.com/aision/Aision-s-Blog"
+tags = ["blog", "minimal", "responsive", "clean"]
+features = ["blog", "projects", "responsive"]
+min_version = "0.111.0"
+
+[author]
+  name = "Aision"
+  homepage = "https://github.com/aision"

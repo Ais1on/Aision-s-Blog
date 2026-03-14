@@ -1,0 +1,46 @@
+baseURL = "https://aision.github.io/Aision-s-Blog/"
+languageCode = "zh-cn"
+title = "Aision 的博客"
+theme = "apple-minimal"
+
+[params]
+  description = "记录写作、项目与技术笔记。"
+  author = "Aision"
+  tagline = "做克制、安静、耐用的数字产品与软件。"
+  github = "https://github.com/ais1on"
+  email = "mailto:hello@example.com"
+  twitter = "https://twitter.com/"
+  avatar_label = "A"
+
+[menu]
+  [[menu.main]]
+    name = "博客"
+    url = "/posts/"
+    weight = 10
+  [[menu.main]]
+    name = "项目"
+    url = "/projects/"
+    weight = 20
+  [[menu.main]]
+    name = "关于"
+    url = "/about/"
+    weight = 30
+  [[menu.main]]
+    name = "GitHub"
+    url = "https://github.com/ais1on"
+    weight = 40
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    noClasses = false
+    codeFences = true
+    guessSyntax = true
+    lineNos = false
+    style = "github"
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4
+    ordered = false
