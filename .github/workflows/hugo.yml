@@ -29,16 +29,18 @@ jobs:
       HUGO_VERSION: 0.145.0
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           submodules: recursive
           fetch-depth: 0
 
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v3
-        with:
-          hugo-version: ${{ env.HUGO_VERSION }}
-          extended: true
+      - name: Install Hugo Extended
+        run: |
+          set -euo pipefail
+          curl -L "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz" -o hugo.tar.gz
+          tar -xzf hugo.tar.gz
+          sudo mv hugo /usr/local/bin/hugo
+          hugo version
 
       - name: Build
         run: hugo --minify
