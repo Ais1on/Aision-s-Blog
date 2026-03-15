@@ -1,0 +1,32 @@
+{{ define "main" }}
+<section class="about-hero">
+  <div class="about-copy">
+    <p class="page-kicker">独立创作</p>
+    <h1>{{ .Site.Title }}</h1>
+    <p class="about-tagline">{{ .Site.Params.tagline }}</p>
+    {{ with .Site.Params.description }}
+      <p class="about-summary">{{ . }}</p>
+    {{ end }}
+  </div>
+
+  <div class="about-avatar-wrap">
+    <div class="about-avatar">
+      {{ with .Site.Params.about_avatar_image }}
+        <img src="{{ . | relURL }}" alt="Avatar">
+      {{ else }}
+      {{ with .Site.Params.avatar_image }}
+        <img src="{{ . | relURL }}" alt="Avatar">
+      {{ else }}
+        <span>{{ .Site.Params.avatar_label }}</span>
+      {{ end }}
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+{{ with .Content }}
+  <section class="about-body">
+    {{ . }}
+  </section>
+{{ end }}
+{{ end }}

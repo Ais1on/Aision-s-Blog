@@ -1,15 +1,17 @@
-baseURL = "https://aision.github.io/Aision-s-Blog/"
+baseURL = "https://ais1on.github.io/Aision-s-Blog/"
 languageCode = "zh-cn"
-title = "Aision 的博客"
+title = "Aision'Blog"
 theme = "apple-minimal"
 
 [params]
   description = "记录写作、项目与技术笔记。"
   author = "Aision"
-  tagline = "做克制、安静、耐用的数字产品与软件。"
+  tagline = "Tring to be better."
   github = "https://github.com/ais1on"
-  email = "mailto:hello@example.com"
+  email = "leexpeng@foxmail.com"
   twitter = "https://twitter.com/"
+  about_avatar_image = "images/about.jpg"
+  avatar_image = "images/avatar.jpg"
   avatar_label = "A"
 
 [menu]

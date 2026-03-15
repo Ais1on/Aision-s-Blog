@@ -1,7 +1,8 @@
 {{ define "main" }}
 {{ $toc := .TableOfContents }}
-<div class="article-layout">
-  {{ if ne $toc "<nav id=\"TableOfContents\"></nav>" }}
+{{ $hasToc := in $toc "<li>" }}
+<div class="article-layout{{ if $hasToc }} has-toc{{ end }}">
+  {{ if $hasToc }}
     <aside class="article-sidebar" data-toc-sidebar>
       <div class="article-toc" data-toc-card>
         <div class="article-toc-head">
@@ -26,9 +27,11 @@
         {{- end -}}
       </p>
       <h1>{{ .Title }}</h1>
-      <div class="article-details">
-        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006年1月2日" }}</time>
-      </div>
+      {{ if not .Date.IsZero }}
+        <div class="article-details">
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006年1月2日" }}</time>
+        </div>
+      {{ end }}
       {{ with .Description }}<p class="article-description">{{ . }}</p>{{ end }}
     </header>
 

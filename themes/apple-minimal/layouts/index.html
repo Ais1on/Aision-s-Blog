@@ -8,7 +8,11 @@
   </div>
   <div class="hero-art" aria-hidden="true">
     <div class="avatar-orb">
-      <span>{{ .Site.Params.avatar_label }}</span>
+      {{ with .Site.Params.avatar_image }}
+        <img class="avatar-image" src="{{ . | relURL }}" alt="Avatar">
+      {{ else }}
+        <span>{{ .Site.Params.avatar_label }}</span>
+      {{ end }}
     </div>
   </div>
 </section>
@@ -16,7 +20,7 @@
 <section class="content-block">
   <div class="section-heading">
     <h2>最新文章</h2>
-    <a href="{{ "/posts/" | relURL }}">查看全部</a>
+    <a href="{{ "posts/" | relURL }}">查看全部</a>
   </div>
   <div class="article-list">
     {{ range first 5 (where .Site.RegularPages "Section" "posts").ByDate.Reverse }}
@@ -40,15 +44,15 @@
 <section class="content-grid">
   <article class="soft-panel">
     <p class="page-kicker">项目</p>
-    <h2>精选作品</h2>
-    <p>放一些小产品、原型、工具和更偏长期主义的系统设计尝试。</p>
-    <a class="text-link" href="{{ "/projects/" | relURL }}">查看项目</a>
+    <h2>近期项目</h2>
+    <p>聚焦安全工程、GraphRAG 与可落地的系统实践。</p>
+    <a class="text-link" href="{{ "projects/" | relURL }}">查看项目</a>
   </article>
   <article class="soft-panel">
     <p class="page-kicker">关于</p>
-    <h2>克制而安静</h2>
-    <p>这个个人网站强调留白、可读性，以及尽量少打扰用户的交互方式。</p>
-    <a class="text-link" href="{{ "/about/" | relURL }}">了解更多</a>
+    <h2>关于我</h2>
+    <p>记录技术学习、实验复盘与长期可复用的方法论。</p>
+    <a class="text-link" href="{{ "about/" | relURL }}">了解更多</a>
   </article>
 </section>
 {{ end }}
