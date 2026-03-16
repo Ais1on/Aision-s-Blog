@@ -1,6 +1,17 @@
-# Aision-s-Blog
+# ais1on.github.io
 
-一个基于 Hugo 的个人博客，适合部署到 GitHub Pages。
+Aision 的个人技术博客，基于 Hugo 构建并部署在 GitHub Pages。
+
+## 关于我
+
+我是 Aision，主要关注安全工程、后端开发与系统化学习。  
+这个站点用来记录学习笔记、项目实践和实验复盘。
+
+## 博客内容
+
+- 网络安全学习与实战记录
+- 后端技术栈笔记（Redis / MySQL / RabbitMQ / Spring Boot）
+- 个人项目与工程化实践（如 CTI-RAG）
 
 ## 本地开发
 
@@ -10,7 +21,7 @@
 hugo server -D
 ```
 
-打开 `http://localhost:1313/Aision-s-Blog/` 或终端里显示的本地地址预览。
+打开 `http://localhost:1313/` 或终端里显示的本地地址预览。
 
 ## 新建文章
 

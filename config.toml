@@ -1,4 +1,4 @@
-baseURL = "https://ais1on.github.io/Aision-s-Blog/"
+baseURL = "https://ais1on.github.io/"
 languageCode = "zh-cn"
 title = "Aision'Blog"
 theme = "apple-minimal"
